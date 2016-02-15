@@ -71,7 +71,7 @@
 			scrollable = false;
 			settings.before(index,elements);
 			interstitialIndex = 1;
-			if(settings.sectionName && settings.disableHashUpdate) {
+			if(settings.sectionName && !settings.disableHashUpdate) {
 				if(history.pushState) {
 				    history.replaceState(null, null, names[index]);
 				} else {

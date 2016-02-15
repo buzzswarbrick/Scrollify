@@ -70,13 +70,7 @@
 			scrollable = false;
 			settings.before(index,elements);
 			interstitialIndex = 1;
-			if(settings.sectionName) {
-				if(history.pushState) {
-				    history.replaceState(null, null, names[index]);
-				} else {
-					window.location.hash = names[index];
-				}
-			}
+			
 			if(instant) {
 				$(settings.target).stop().scrollTop(heights[index]);
 				settings.after(index,elements);

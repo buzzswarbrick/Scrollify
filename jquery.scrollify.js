@@ -50,6 +50,7 @@
 			//section should be an identifier that is the same for each section
 			section: "section",
 			sectionName: "section-name",
+			disableUrlUpdate: false,
 			easing: "easeOutExpo",
 			scrollSpeed: 1100,
 			offset : 0,
@@ -70,7 +71,13 @@
 			scrollable = false;
 			settings.before(index,elements);
 			interstitialIndex = 1;
-			
+			if(settings.sectionName && settings.disableHashUpdate) {
+				if(history.pushState) {
+				    history.replaceState(null, null, names[index]);
+				} else {
+					window.location.hash = names[index];
+				}
+			}
 			if(instant) {
 				$(settings.target).stop().scrollTop(heights[index]);
 				settings.after(index,elements);
